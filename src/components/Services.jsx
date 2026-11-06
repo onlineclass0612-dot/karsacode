@@ -61,7 +61,7 @@ export default function Services() {
           return (
             <div 
               key={pkg.id}
-              className="relative rounded-3xl p-7 sm:p-8 flex flex-col justify-between bg-[#14121A]/70 backdrop-blur-2xl border border-white/10 hover:border-[#FFB347]/40 shadow-[0_12px_40px_rgba(0,0,0,0.5)] transition-all duration-300 hover:-translate-y-1.5"
+              className="relative rounded-3xl p-7 sm:p-8 flex flex-col justify-between bg-[#14121A] md:bg-[#14121A]/70 md:backdrop-blur-xl border border-white/10 hover:border-[#FFB347]/40 shadow-[0_12px_40px_rgba(0,0,0,0.5)] transition-all duration-300 hover:-translate-y-1.5"
             >
               <div>
                 {/* Icon Box */}
@@ -120,7 +120,7 @@ export default function Services() {
                   ? 'bg-gradient-to-b from-[#181524] to-[#12101A] border-2 border-[#FFB347]/60 shadow-[0_0_45px_rgba(255,179,71,0.22)] hover:shadow-[0_0_55px_rgba(255,179,71,0.35)]'
                   : pkg.isCustomBudget
                   ? 'bg-gradient-to-b from-[#101926] to-[#0D121D] border border-cyan-400/35 hover:border-cyan-400/80 shadow-[0_12px_40px_rgba(0,0,0,0.6)] hover:shadow-[0_0_35px_rgba(56,189,248,0.25)]'
-                  : 'bg-[#14121A]/80 backdrop-blur-2xl border border-white/15 hover:border-[#FFB347]/40 shadow-[0_12px_40px_rgba(0,0,0,0.6)]'
+                  : 'bg-[#14121A] md:bg-[#14121A]/80 md:backdrop-blur-xl border border-white/15 hover:border-[#FFB347]/40 shadow-[0_12px_40px_rgba(0,0,0,0.6)]'
               }`}
             >
               {/* Badge */}

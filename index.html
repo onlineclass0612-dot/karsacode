@@ -11,6 +11,9 @@
     <title>KarsaCode — Digital Evolution Studio | Solusi Website Bisnis Presisi</title>
     <meta name="description" content="KarsaCode adalah Digital Evolution Studio yang merekayasa website performa tinggi, cepat, elegan, dan berorientasi konversi untuk mengakselerasi skala bisnis Anda." />
     
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://karsacode.averous.my.id/" />
+    
     <!-- Open Graph / WhatsApp / Facebook Sharing Preview -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="KarsaCode Digital Evolution Studio" />
@@ -29,10 +32,20 @@
     <meta name="twitter:description" content="Akselerasi skala bisnis Anda lewat website modern, cepat, dan siap menghasilkan dampak nyata." />
     <meta name="twitter:image" content="https://raw.githubusercontent.com/onlineclass0612-dot/karsacode/main/public/og-image.jpg" />
     
-    <!-- Google Fonts: Space Grotesk & Plus Jakarta Sans -->
+    <!-- Google Fonts: Space Grotesk & Plus Jakarta Sans (Non-render-blocking) -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" />
+    </noscript>
+
+    <!-- Mobile LCP Image Preload (High-Performance WebP) -->
+    <link rel="preload" as="image" href="/assets/hero_bg.webp" fetchpriority="high" type="image/webp" />
+    <link rel="preload" as="image" href="/assets/logo_emblem.webp" type="image/webp" />
   </head>
   <body class="bg-[#0D0C10] text-[#FFFFFF] selection:bg-[#FFB347]/30 selection:text-[#FFB347] font-sans antialiased">
     <div id="root"></div>

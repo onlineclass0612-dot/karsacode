@@ -37,10 +37,18 @@ export default function Navbar() {
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          setScrolled(window.scrollY > 20);
+          const isScrolledNow = window.scrollY > 20;
+          setScrolled(isScrolledNow);
 
           // If user recently clicked a nav item, don't overwrite during smooth scroll
           if (isClickingRef.current) {
+            ticking = false;
+            return;
+          }
+
+          // Performance guard: Skip expensive layout calculations if at the top of the page
+          if (window.scrollY < 20) {
+            setActiveSection('hero');
             ticking = false;
             return;
           }
@@ -88,14 +96,14 @@ export default function Navbar() {
     <header 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out ${
         scrolled 
-          ? 'bg-[#0D0C10]/85 backdrop-blur-xl border-b border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.7)] py-3.5 sm:py-4' 
+          ? 'bg-[#0D0C10]/95 md:bg-[#0D0C10]/85 md:backdrop-blur-xl border-b border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.7)] py-3.5 sm:py-4' 
           : 'bg-transparent border-b border-transparent py-5 sm:py-6'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 relative flex items-center justify-between">
         {/* Left: Logo Mark & Text (Left Aligned) */}
         <div className="flex items-center justify-start z-10">
-          <a href="#hero" className="flex items-center">
+          <a href="#hero" className="flex items-center" aria-label="KarsaCode Beranda">
             <Logo />
           </a>
         </div>
@@ -154,7 +162,7 @@ export default function Navbar() {
           {/* Mobile Toggle */}
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-gray-300 hover:text-white"
+            className="md:hidden p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-gray-300 hover:text-white"
             aria-label="Buka Menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -164,7 +172,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="absolute top-full left-0 w-full bg-[#0D0C10]/95 backdrop-blur-2xl border-b border-[#FFB347]/20 px-6 py-6 shadow-2xl md:hidden flex flex-col gap-3">
+        <div className="absolute top-full left-0 w-full bg-[#0D0C10]/98 md:backdrop-blur-2xl border-b border-[#FFB347]/20 px-6 py-6 shadow-2xl md:hidden flex flex-col gap-3">
           {navItems.map((item) => {
             const isActive = activeSection === item.id;
             return (

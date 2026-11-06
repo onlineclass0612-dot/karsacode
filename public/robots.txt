@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://karsacode.averous.my.id/sitemap.xml
+

@@ -89,7 +89,7 @@ export default function ContactCTA() {
           </div>
 
           {/* Right Column: Interactive Contact Form */}
-          <div className="lg:col-span-7 bg-[#0D0C12]/80 backdrop-blur-xl p-6 sm:p-8 rounded-3xl border border-white/10 shadow-2xl">
+          <div className="lg:col-span-7 bg-[#0D0C12] md:bg-[#0D0C12]/80 md:backdrop-blur-xl p-6 sm:p-8 rounded-3xl border border-white/10 shadow-2xl">
             {submitted ? (
               <div className="py-12 flex flex-col items-center text-center">
                 <div className="w-16 h-16 rounded-2xl bg-green-500/15 border border-green-500/30 flex items-center justify-center text-green-400 mb-4 shadow-[0_0_20px_rgba(34,197,94,0.3)]">
@@ -116,30 +116,34 @@ export default function ContactCTA() {
                 {/* Name & Email */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[11px] font-semibold text-gray-300 uppercase tracking-wider mb-1.5">
+                    <label htmlFor="contact-name" className="block text-[11px] font-semibold text-gray-300 uppercase tracking-wider mb-1.5">
                       {t.contact.form.nameLabel} *
                     </label>
                     <input 
+                      id="contact-name"
+                      name="name"
                       type="text"
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder={t.contact.form.namePlaceholder}
-                      className="w-full px-4 py-3 rounded-xl bg-[#14121A] border border-white/10 text-white text-xs placeholder:text-gray-600 focus:outline-none focus:border-[#FFB347] focus:ring-1 focus:ring-[#FFB347] transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-[#14121A] border border-white/10 text-white text-xs placeholder:text-gray-500 focus:outline-none focus:border-[#FFB347] focus:ring-1 focus:ring-[#FFB347] transition-all"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-semibold text-gray-300 uppercase tracking-wider mb-1.5">
+                    <label htmlFor="contact-email" className="block text-[11px] font-semibold text-gray-300 uppercase tracking-wider mb-1.5">
                       {t.contact.form.emailLabel} *
                     </label>
                     <input 
+                      id="contact-email"
+                      name="email"
                       type="email"
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder={t.contact.form.emailPlaceholder}
-                      className="w-full px-4 py-3 rounded-xl bg-[#14121A] border border-white/10 text-white text-xs placeholder:text-gray-600 focus:outline-none focus:border-[#FFB347] focus:ring-1 focus:ring-[#FFB347] transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-[#14121A] border border-white/10 text-white text-xs placeholder:text-gray-500 focus:outline-none focus:border-[#FFB347] focus:ring-1 focus:ring-[#FFB347] transition-all"
                     />
                   </div>
                 </div>
@@ -147,10 +151,12 @@ export default function ContactCTA() {
                 {/* Package Tier & Budget */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[11px] font-semibold text-gray-300 uppercase tracking-wider mb-1.5">
+                    <label htmlFor="contact-package" className="block text-[11px] font-semibold text-gray-300 uppercase tracking-wider mb-1.5">
                       {t.contact.form.packageLabel}
                     </label>
                     <select
+                      id="contact-package"
+                      name="packageTier"
                       value={formData.packageTier}
                       onChange={(e) => setFormData({ ...formData, packageTier: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl bg-[#14121A] border border-white/10 text-white text-xs focus:outline-none focus:border-[#FFB347] transition-all cursor-pointer"
@@ -167,10 +173,12 @@ export default function ContactCTA() {
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-semibold text-gray-300 uppercase tracking-wider mb-1.5">
+                    <label htmlFor="contact-budget" className="block text-[11px] font-semibold text-gray-300 uppercase tracking-wider mb-1.5">
                       {language === 'id' ? 'Estimasi Anggaran' : 'Estimated Budget'}
                     </label>
                     <select
+                      id="contact-budget"
+                      name="budget"
                       value={formData.budget}
                       onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl bg-[#14121A] border border-white/10 text-white text-xs focus:outline-none focus:border-[#FFB347] transition-all cursor-pointer"
@@ -187,16 +195,18 @@ export default function ContactCTA() {
 
                 {/* Project Description */}
                 <div>
-                  <label className="block text-[11px] font-semibold text-gray-300 uppercase tracking-wider mb-1.5">
+                  <label htmlFor="contact-description" className="block text-[11px] font-semibold text-gray-300 uppercase tracking-wider mb-1.5">
                     {t.contact.form.descLabel} *
                   </label>
                   <textarea 
+                    id="contact-description"
+                    name="description"
                     rows={4}
                     required
                     value={formData.description}
                     onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                     placeholder={t.contact.form.descPlaceholder}
-                    className="w-full px-4 py-3 rounded-xl bg-[#14121A] border border-white/10 text-white text-xs placeholder:text-gray-600 focus:outline-none focus:border-[#FFB347] focus:ring-1 focus:ring-[#FFB347] transition-all resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-[#14121A] border border-white/10 text-white text-xs placeholder:text-gray-500 focus:outline-none focus:border-[#FFB347] focus:ring-1 focus:ring-[#FFB347] transition-all resize-none"
                   />
                 </div>
 
@@ -209,7 +219,7 @@ export default function ContactCTA() {
                   <ArrowUpRight className="w-4 h-4" />
                 </button>
 
-                <p className="text-[10px] text-gray-500 text-center pt-2">
+                <p className="text-[10px] text-gray-400 text-center pt-2">
                   🔒 {language === 'id' ? 'Data Anda bersifat rahasia dan terlindungi NDA.' : 'Your data is strictly confidential and protected by NDA.'}
                 </p>
 

@@ -16,15 +16,17 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen bg-[#0D0C10] text-white font-sans antialiased selection:bg-[#FFB347]/30 selection:text-[#FFB347]">
-      {/* 1. Main Tiled Background Pattern (Seamless repeating constellation mesh) */}
+      {/* 1. Main Tiled Background Pattern (Seamless repeating constellation mesh with GPU layer isolation) */}
       <div 
-        className="fixed inset-0 pointer-events-none z-0"
+        className="fixed inset-0 pointer-events-none z-0 transform-gpu"
         style={{
-          backgroundImage: 'url(/assets/tiled_bg.jpg)',
+          backgroundImage: 'url(/assets/tiled_bg.webp)',
           backgroundRepeat: 'repeat',
           backgroundSize: '512px 512px',
           backgroundPosition: 'center top',
           opacity: 0.65,
+          transform: 'translateZ(0)',
+          willChange: 'transform',
         }}
       >
         {/* Ambient Dark Overlay to maintain optimal text contrast & bento glass clarity */}

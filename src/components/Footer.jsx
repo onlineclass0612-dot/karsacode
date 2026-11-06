@@ -31,15 +31,15 @@ export default function Footer() {
             <h4 className="text-xs font-mono font-semibold text-white uppercase tracking-wider mb-5">
               {language === 'id' ? 'Navigasi Studio' : 'Studio Navigation'}
             </h4>
-            <ul className="space-y-3 text-xs text-[#A1A1AA]">
+            <ul className="space-y-1 text-xs text-[#A1A1AA]">
               <li>
-                <a href="#hero" className="hover:text-[#FFB347] transition-colors">{t.nav.beranda}</a>
+                <a href="#hero" className="py-2 block hover:text-[#FFB347] transition-colors">{t.nav.beranda}</a>
               </li>
               <li>
-                <a href="#layanan" className="hover:text-[#FFB347] transition-colors">{t.nav.layanan}</a>
+                <a href="#layanan" className="py-2 block hover:text-[#FFB347] transition-colors">{t.nav.layanan}</a>
               </li>
               <li>
-                <a href="#kontak" className="hover:text-[#FFB347] transition-colors">{t.nav.contact}</a>
+                <a href="#kontak" className="py-2 block hover:text-[#FFB347] transition-colors">{t.nav.contact}</a>
               </li>
             </ul>
           </div>
@@ -49,19 +49,21 @@ export default function Footer() {
             <h4 className="text-xs font-mono font-semibold text-white uppercase tracking-wider mb-5">
               {language === 'id' ? 'Kontak Studio' : 'Studio Contact'}
             </h4>
-            <div className="space-y-3 text-xs text-[#A1A1AA]">
+            <div className="space-y-1 text-xs text-[#A1A1AA]">
               <a 
                 href="https://wa.me/6285181738437" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="flex items-center gap-2 hover:text-[#FFB347] transition-colors group"
+                className="flex items-center gap-2 py-2 hover:text-[#FFB347] transition-colors group"
+                aria-label="Hubungi WhatsApp KarsaCode Studio"
               >
                 <MessageSquare className="w-3.5 h-3.5 text-[#FFB347]" />
                 <span className="group-hover:text-white transition-colors">+62 851-8173-8437</span>
               </a>
               <a 
                 href="mailto:rushcode12@gmail.com" 
-                className="flex items-center gap-2 hover:text-[#FFB347] transition-colors group"
+                className="flex items-center gap-2 py-2 hover:text-[#FFB347] transition-colors group"
+                aria-label="Kirim Email ke rushcode12@gmail.com"
               >
                 <Mail className="w-3.5 h-3.5 text-[#C29166]" />
                 <span className="group-hover:text-white transition-colors">rushcode12@gmail.com</span>
@@ -72,7 +74,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
           <div>
             &copy; {new Date().getFullYear()} <span className="text-gray-300 font-semibold">KarsaCode</span> (Digital Evolution Studio). {t.footer.rights}
           </div>

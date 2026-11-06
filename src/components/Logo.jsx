@@ -10,8 +10,11 @@ export default function Logo({ size = 'md' }) {
         className={`relative ${isLarge ? 'w-12 h-12' : 'w-9 h-9 sm:w-10 sm:h-10'} flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shrink-0`}
       >
         <img 
-          src="/assets/logo_emblem.png" 
+          src="/assets/logo_emblem.webp" 
           alt="KarsaCode Emblem" 
+          width={isLarge ? 48 : 40}
+          height={isLarge ? 48 : 40}
+          decoding="async"
           className="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(255,179,71,0.45)] group-hover:drop-shadow-[0_0_18px_rgba(255,179,71,0.7)] transition-all duration-300"
         />
       </div>

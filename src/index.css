@@ -12,6 +12,91 @@ body {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   overflow-x: hidden;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Mobile Touch Delay Elimination */
+a, button, input, select, textarea {
+  touch-action: manipulation;
+}
+
+/* Offscreen Section Rendering Optimization (Skips layout/paint of offscreen sections on initial load) */
+section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 650px;
+}
+
+#hero {
+  content-visibility: visible;
+}
+
+/* Accessible Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High-Performance GPU Entrance Animations (0ms TBT - Runs on Compositor Thread) */
+@keyframes heroFadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -10px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes heroFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes heroFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-hero-badge {
+  animation: heroFadeInDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: opacity, transform;
+}
+
+.animate-hero-h1 {
+  animation: heroFadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: opacity, transform;
+}
+
+.animate-hero-p {
+  animation: heroFadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+  will-change: opacity, transform;
+}
+
+.animate-hero-cta {
+  animation: heroFadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+  will-change: opacity, transform;
+}
+
+.animate-hero-metrics {
+  animation: heroFadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+  will-change: opacity;
 }
 
 h1, h2, h3, h4, .font-heading {

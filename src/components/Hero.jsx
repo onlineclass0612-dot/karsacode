@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -13,11 +12,15 @@ export default function Hero() {
           Hero Background: Responsive (Video for Desktop & Tablet, Image for Mobile)
           ========================================================================= */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
-        {/* 1. Mobile Only (< 768px): Optimized Static Image */}
+        {/* 1. Mobile Only (< 768px): Optimized Static Image (High-Performance WebP) */}
         <div className="block md:hidden w-full h-full">
           <img 
-            src="/assets/hero_bg.jpg" 
+            src="/assets/hero_bg.webp" 
             alt="Spatial Amber Neural Network" 
+            width="1024"
+            height="571"
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover object-center opacity-85"
           />
         </div>
@@ -30,14 +33,18 @@ export default function Hero() {
             loop
             muted
             playsInline
-            poster="/assets/hero_bg.jpg"
+            preload="none"
+            poster="/assets/hero_bg.webp"
             className="w-full h-full object-cover object-center opacity-85 transition-opacity duration-1000"
           >
             <source src="/assets/screen_hero_bg.webm" type="video/webm" />
             {/* Fallback image if video cannot be played */}
             <img 
-              src="/assets/hero_bg.jpg" 
+              src="/assets/hero_bg.webp" 
               alt="Spatial Amber Neural Network" 
+              width="1024"
+              height="571"
+              decoding="async"
               className="w-full h-full object-cover object-center"
             />
           </video>
@@ -54,48 +61,28 @@ export default function Hero() {
         
         {/* Top Eyebrow Badge */}
         {t.hero.badge && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#14121A]/80 border border-[#FFB347]/25 text-[11px] sm:text-xs font-mono font-medium text-[#FFB347] tracking-[0.2em] uppercase mb-6 backdrop-blur-md shadow-[0_0_20px_rgba(255,179,71,0.15)]"
-          >
+          <div className="animate-hero-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#14121A]/80 border border-[#FFB347]/25 text-[11px] sm:text-xs font-mono font-medium text-[#FFB347] tracking-[0.2em] uppercase mb-6 backdrop-blur-md shadow-[0_0_20px_rgba(255,179,71,0.15)]">
             <span className="w-1.5 h-1.5 rounded-full bg-[#FFB347] animate-pulse" />
             <span>{t.hero.badge}</span>
-          </motion.div>
+          </div>
         )}
 
         {/* Main Headline */}
-        <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-heading tracking-tight text-white leading-[1.14] max-w-5xl mb-6 drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)] text-center"
-        >
+        <h1 className="animate-hero-h1 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-heading tracking-tight text-white leading-[1.14] max-w-5xl mb-6 drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)] text-center">
           <span className="block">{t.hero.headlinePart1}</span>
           <span className="block">
             {t.hero.headlineConnector && <span className="text-white">{t.hero.headlineConnector} </span>}
             <span className="text-gradient-amber">{t.hero.headlinePart2}</span>
           </span>
-        </motion.h1>
+        </h1>
 
         {/* Subheadline */}
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="text-base sm:text-lg md:text-xl text-[#D4D4D8] max-w-2xl leading-relaxed mb-8 font-normal drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)] text-center"
-        >
+        <p className="animate-hero-p text-base sm:text-lg md:text-xl text-[#D4D4D8] max-w-2xl leading-relaxed mb-8 font-normal drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)] text-center">
           {t.hero.subheadline}
-        </motion.p>
+        </p>
 
         {/* Single Compact CTA Button */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="flex items-center justify-center mb-10"
-        >
+        <div className="animate-hero-cta flex items-center justify-center mb-10">
           <a 
             href="#kontak"
             className="group inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full text-sm font-semibold text-[#0D0C10] bg-gradient-to-r from-[#FFB347] to-[#C29166] hover:from-[#FFA930] hover:to-[#B68155] shadow-[0_0_25px_rgba(255,179,71,0.35)] hover:shadow-[0_0_35px_rgba(255,179,71,0.6)] hover:scale-[1.03] transition-all duration-300"
@@ -103,23 +90,18 @@ export default function Hero() {
             <span>{t.hero.cta}</span>
             <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
-        </motion.div>
+        </div>
 
         {/* Trust Indicators / Quick Metrics */}
         {t.hero.metrics && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs font-mono text-gray-400 mb-12"
-          >
+          <div className="animate-hero-metrics flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs font-mono text-gray-400 mb-12">
             {t.hero.metrics.map((metric, idx) => (
               <div key={idx} className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#FFB347]/70" />
                 <span>{metric}</span>
               </div>
             ))}
-          </motion.div>
+          </div>
         )}
 
       </div>
